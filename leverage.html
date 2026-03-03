@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leverage Calculator - Code2Capital</title>
+<link rel="stylesheet" href="sip.css">
+</head>
+
+<body>
+
+<header>
+  <h1>Code2Capital</h1>
+  <a href="index.html">⬅ Back to Home</a>
+</header>
+
+<section class="container">
+<h2>Leverage Calculator</h2>
+
+<div class="calculator-card">
+  
+  <label>Investment Amount (₹)</label>
+  <input type="number" id="investment" placeholder="Enter your capital">
+
+  <label>Leverage</label>
+  <select id="leverage">
+    <option value="5">5x</option>
+    <option value="4">4x</option>
+    <option value="3">3x</option>
+  </select>
+
+  <button onclick="calculateLeverage()">Calculate</button>
+
+  <div id="result"></div>
+
+</div>
+</section>
+
+<script>
+function calculateLeverage(){
+  let investment = parseFloat(document.getElementById("investment").value);
+  let leverage = parseFloat(document.getElementById("leverage").value);
+
+  if(isNaN(investment) || isNaN(leverage)){
+    document.getElementById("result").innerHTML = "Please fill all fields.";
+    return;
+  }
+
+  let effectiveBuyingPower = investment * leverage;
+
+  document.getElementById("result").innerHTML = `
+    <p>With ${leverage}x leverage, your effective buying power is: ₹${effectiveBuyingPower.toFixed(2)}</p>
+    <a href="https://your-affiliate-link.com" target="_blank" class="affiliate-btn">Open Margin Account</a>
+  `;
+}
+</script>
+
+</body>
+</html>
