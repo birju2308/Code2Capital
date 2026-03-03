@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profit Calculator - Code2Capital</title>
+
+<link rel="stylesheet" href="sip.css">
+</head>
+
+<body>
+
+<header>
+  <h1>Code2Capital</h1>
+  <a href="index.html">⬅ Back to Home</a>
+</header>
+
+<section class="container">
+  <h2>Stock Profit Calculator</h2>
+
+  <div class="calculator-card">
+    
+    <label>Buying Price (₹)</label>
+    <input type="number" id="buy" placeholder="Enter buying price">
+
+    <label>Selling Price (₹)</label>
+    <input type="number" id="sell" placeholder="Enter selling price">
+
+    <label>Quantity</label>
+    <input type="number" id="qty" placeholder="Number of shares">
+
+    <button onclick="calculateProfit()">Calculate</button>
+
+    <div id="result"></div>
+
+  </div>
+</section>
+
+<script>
+function calculateProfit(){
+  let buy = parseFloat(document.getElementById("buy").value);
+  let sell = parseFloat(document.getElementById("sell").value);
+  let qty = parseFloat(document.getElementById("qty").value);
+
+  if(isNaN(buy) || isNaN(sell) || isNaN(qty)){
+    document.getElementById("result").innerHTML = "Please fill all fields.";
+    return;
+  }
+
+  let totalInvestment = buy * qty;
+  let totalReturn = sell * qty;
+  let profit = totalReturn - totalInvestment;
+  let profitPercent = (profit / totalInvestment) * 100;
+
+  let color = profit >= 0 ? "#22c55e" : "red";
+
+  document.getElementById("result").innerHTML = `
+    <p>Total Investment: ₹${totalInvestment.toFixed(2)}</p>
+    <p>Total Return: ₹${totalReturn.toFixed(2)}</p>
+    <p style="color:${color};">
+      ${profit >= 0 ? "Profit" : "Loss"}: ₹${profit.toFixed(2)}
+      (${profitPercent.toFixed(2)}%)
+    </p>
+  `;
+}
+</script>
+
+</body>
+</html>
