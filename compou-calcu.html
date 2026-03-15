@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NV9TYKHMBQ"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-NV9TYKHMBQ');
+</script>
+
+<title>Compound Interest Calculator | Code2Capital</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#0f172a;
+color:white;
+text-align:center;
+}
+
+header{
+background:#111827;
+padding:20px;
+}
+
+header h1{
+color:#22c55e;
+}
+
+.container{
+padding:50px 20px;
+}
+
+.calculator{
+background:#1e293b;
+max-width:400px;
+margin:auto;
+padding:30px;
+border-radius:15px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:8px;
+border:none;
+}
+
+button{
+margin-top:20px;
+padding:12px;
+width:100%;
+background:#22c55e;
+border:none;
+border-radius:25px;
+font-weight:bold;
+cursor:pointer;
+}
+
+#result{
+margin-top:20px;
+font-size:18px;
+color:#22c55e;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Compound Interest Calculator</h1>
+</header>
+
+<div class="container">
+
+<div class="calculator">
+
+<label>Initial Investment (₹)</label>
+<input type="number" id="principal" placeholder="Enter Initial Investment">
+
+<label>Annual Interest Rate (%)</label>
+<input type="number" id="rate" placeholder="Enter Annual Interest Rate">
+
+<label>Years</label>
+<input type="number" id="years" placeholder="Enter Years">
+
+<button onclick="calculate()">Calculate</button>
+
+<div id="result"></div>
+
+</div>
+
+</div>
+
+<script>
+
+function calculate(){
+
+let P=document.getElementById("principal").value;
+let R=document.getElementById("rate").value/100;
+let T=document.getElementById("years").value;
+
+let total=P*Math.pow((1+R),T);
+
+document.getElementById("result").innerHTML=
+"Total Value: ₹"+total.toFixed(2);
+
+}
+
+</script>
+
+</body>
+</html>
