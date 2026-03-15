@@ -174,5 +174,15 @@
     <loc>https://www.code2capital.in/how-start-tradi.html</loc>
     <priority>0.8</priority>
   </url>
+
+  <url>
+    <loc>https://www.code2capital.in/funda.analy.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.code2capital.in/candeli.pattern.html</loc>
+    <priority>0.8</priority>
+  </url>
   
 </urlset>
